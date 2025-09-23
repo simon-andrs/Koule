@@ -14,11 +14,12 @@ E/Q: rychlost (změní délku kroku a tedy i přesnost)
 P/G: zastaví/obnoví pohyb
 X/C: pustí čas dozadu/dopředu
 H/B: pohybuje dělící čarou (jen ve 3 dimenzích)
-A: změní kameru a přiblížení, aby byly vidět všechny objekty (zatím není hotové)
+A: změní kameru a přiblížení, aby byly vidět všechny objekty
 esc: ukončí program
 
 Možná vylepšení programu:
 Detekce a simulace srážek (vyřešilo by současný problém, kdy program nezvládá přílišná přiblížení objektů)
 Použít lepší numerickou metodu
 Koule za sebou kreslí čáry - je lépe vidět jejich trajektorie
+
 ...
