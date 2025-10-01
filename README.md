@@ -4,22 +4,22 @@ Jednoduchý engine na simulaci N koulí, působicích na sebe silami.
 ## Instalace a spuštění
 Program ke spuštění potřebuje  naistalovaný Python a Pygame, tu lze naistalovat pomocí:
 ```python3 -m pip install -U pygame==2.6.0```
-Simulaci pak spouští buď jeden ze souborů začínajících `RUN_`, případně můžete nastavit vlastní počáteční parametry vytvořením nového souboru podle návodu níže.
+Simulaci pak spustí buď jeden ze souborů začínajících `RUN_`, nebo můžete nastavit vlastní počáteční parametry vytvořením nového souboru podle návodu níže.
 
 ## Běh programu
-Po spuštění se rozběhne simulace pohybu těles. Ve třech dimenzích program zobrazuje tzv. Mongeovo promítaní - v horní částí vidíme pohled zepředu, ve spodní zezhora. Počáteční nastavení přiblížení, pozice pozorovatele a rychlosti pohybu mohou být nepraktické, program je proto možné za běhu ovládat těmito klávesami:
+Po spuštění se rozběhne simulace pohybu těles. Při simulaci ve třech dimenzích program zobrazuje tzv. Mongeovo promítaní - v horní částí vidíme pohled zepředu, ve spodní zezhora. Počáteční nastavení přiblížení, pozice pozorovatele a rychlosti pohybu mohou být nepraktické, program je proto možné za běhu ovládat těmito klávesami:
 
-|Klávesy   |Funkce|
-|:--------:|------|
-|W/S       |Přiblížení/oddálení pohledu|
-|šipky     |Pohyb kamery|
-|Ctrl/tečka|Pohyb kamery nahoru/dolů (jen ve 3D zoobrazení)|
-|E/Q       |Zrychlení/zpomalení (mění délku kroku, a tedy i přesnost simulace)|
-|P/G       |Pozastaví/obnoví pohyb|
-|X/C       |Pustí čas pozadu/popředu|
-|H/B       |Pohyb čáry mezi nárysem a půdorysem (jen ve 3D zobrazení)|
-|A         |Pohne kamerou a změní přiblížení tak, aby byla vidět všechna tělesa|
-|esc       |Ukončí program|
+|Klávesy    |Funkce|
+|:---------:|------|
+|**W**/**S**|Přiblížení/oddálení pohledu|
+|šipky      |Pohyb kamery|
+|Ctrl/tečka |Pohyb kamery nahoru/dolů (jen ve 3D zoobrazení)|
+|**E**/**Q**|Zrychlení/zpomalení (mění délku kroku, a tedy i přesnost simulace)|
+|**P**/**G**|Pozastaví/obnoví pohyb|
+|**X**/**C**|Pustí čas pozadu/popředu|
+|**H**/**B**|Pohyb čáry mezi nárysem a půdorysem (jen ve 3D zobrazení)|
+|**A**      |Pohne kamerou a změní přiblížení tak, aby byla vidět všechna tělesa|
+|esc        |Ukončí program|
 
 ## Vytvoření vlastní simulace
 K vytvoření vlastní simulace je třeba v adresáři programu vytvořit nový soubor `.py`, začínající řádky:
@@ -62,7 +62,7 @@ Programu můžete zadat problém i ve více než 3 dimenzích, v takovém příp
 Stejně tak je možné jako hodnoty parametrů uvést komplexní čísla ve tvaru *2+3j*, výpočet pak bude probíhat v komplexních číslech. Ve 2 a více dimenzích se ale zobrazuje pouze reálná část pozice těles. Při simulaci v jediné dimenzi představuje vodorovná osa reálnou a svislá imaginární část polohy těles.
 
 ## Technický popis
-  Program je rozdělen do několika souborů. [`vectors.py`](vectors.py) definuje třídu vektorů a umožňuje je sčítat, násobit skalárem... aby bylo možné zapisovat fyzikální vzorce ve vetorové formě přímo v Pythonu. [`physics.py`](physics.py) pak obsahuje metody pro samotnou simulaci pohybu těles. Pro řešení diferenciálních rovnic newtonovské mechaniky jsem použil Eulerovu metodu, která selhává při přílišném přiblížení těles, proto v takovém případě koule odlétají zcela bezprecedentní rychlostí. O vykreslování a ovládání programu uživatelem se pak stará [`graphics.py`](graphics.py) pomocí knihovny Pygame. [`main.py`](main.py) slouží jako celková režije ostaních skriptů, jejímž cílem je, aby psaní skriptů s počátečními podmínkami bylo co nejjednodušší.
+  Program je rozdělen do několika souborů. [`vectors.py`](vectors.py) definuje třídu vektorů a umožňuje s nimi provádět základní operace tak, aby bylo možné zapisovat fyzikální vzorce ve vetorové formě přímo v Pythonu. [`physics.py`](physics.py) pak obsahuje metody pro samotnou simulaci pohybu těles. Pro řešení diferenciálních rovnic newtonovské mechaniky jsem použil Eulerovu metodu, která selhává při přílišném přiblížení těles, proto v takovém případě koule odlétají zcela bezprecedentní rychlostí. O vykreslování a ovládání programu uživatelem se pak stará [`graphics.py`](graphics.py) pomocí knihovny Pygame. [`main.py`](main.py) slouží jako celková režije ostaních skriptů se snahou, aby skriptů určujících počáteční podmínky bylo co nejjednodušší.
 
 
 [^1]: Vektory se zapisují ve formě *(x, y, z...)*, kde počet složek musí odpovídat počtu dimenzí definovanému na začátku souboru. V případě jednodimenzionální situace je potřeba psát vektory ve formě *(x,)*.
